@@ -1,0 +1,151 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: absolute;
+}
+
+#abri {
+    color: #79C8D6;
+}
+
+#search {
+    font-size: 12px;
+}
+
+#categorias {
+    position: static;
+}
+
+#link-admin {
+    color: rgb(187, 187, 187);
+}
+
+.img-categorias-header{
+    border-radius: 20px;
+    transform: scale(1);
+    transition: transform .5s ease;
+}
+
+.badge {
+    margin-left: 0px;
+    font-size: 9px;
+}
+
+.badge-info {
+    background-color: #F48169;
+    color: white;
+}
+
+.inner-addon {
+    position: relative;
+    width: 60%;
+}
+
+.inner-addon .fa-search {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.left-addon .fa-search {
+    left: 0px;
+}
+
+.right-addon .fa-search {
+    right: 0px;
+}
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+.card {
+    border: 0px;
+}
+
+.dropdown-menu {
+    border: 0px;
+    margin-top: 0px;
+}
+
+#separador2 {
+    height: 89px;
+}
+
+a:hover .img-categorias-header {
+    transform: scale(1.025);
+    transition: transform .5s ease;
+}
+
+@media (max-width: 991px) {
+.navbar {
+    height: auto;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#nav-left {
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: flex-start;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    margin-bottom: .5rem;
+}
+
+.navbar-collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.nav-right {
+        flex-direction: row;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        justify-content: flex-start;
+        padding-right: .5rem;
+        padding-left: .5rem;
+        margin-bottom: .5rem;
+}
+
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: row;
+    padding-left: .5rem;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 1.5rem;
+}
+
+#search-field {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: .5rem;
+    margin-bottom: .5rem;
+}
+}

@@ -1,0 +1,175 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#btn-crearCuenta {
+    margin-top: 30px;
+}
+
+.form-check p {
+    font-size: 12px;
+    line-height: 2px;
+}
+
+.fondo {
+    background-color: rgba(247, 247, 247, 0.8)
+}
+
+#titulo {
+    margin-top: 50px;
+}
+
+#separador {
+    height: 50px;
+}
+
+#videoBack {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #videoBack {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 1023px) {
+    #videoBack {
+        display: none;
+    }
+
+    body {
+        background-image: url('../img/bg-register-1024.jpg');
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 1024px) {
+    #videoBack {
+        display: none;
+    }
+
+    body {
+        background-image: url('../img/bg-register-1024.jpg');
+        background-position-x: center;
+        background-position-y: initial;
+    }
+}
+
+@media (max-width: 767px) {
+    #videoBack {
+        display: none;
+    }
+
+    body {
+        background-image: url('../img/bg-register-700.jpg');
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+.separador {
+    height: 50px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+.eye {
+    cursor: pointer;
+}
+
+.password {
+    margin-top: -0px;
+}
+
+.eye2 {
+    cursor: pointer;
+}
+
+.password2 {
+    margin-top: -0px;
+}
+
+.eye3 {
+    cursor: pointer;
+}
+
+#message {
+    display: none;
+    color: #000;
+    position: relative;
+}
+
+.is-valid {
+    color: green
+}
+
+.is-valid:before {
+    position: relative;
+    content: "✔"
+}
+
+.is-invalid {
+    color: red;
+}
+
+.is-invalid:before {
+    position: relative;
+    content: "✖"
+}
+
+.icon {
+    padding: 0px;
+
+}
+
+.input-icons { 
+
+}
+
+.input-icons i { 
+
+} 
+
+.inner-addon-eye {
+    position: relative;
+    width: 100%;
+}
+
+.inner-addon-eye .fa-eye {
+    position: absolute;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+.right-addon .fa-eye {
+    right: 0px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}

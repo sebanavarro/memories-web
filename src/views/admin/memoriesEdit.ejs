@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <title>Editar <%= product.name%> | MEMORIES</title>
+</head>
+
+<body>
+<%- include('../partials/headerAdminPartial.ejs') %>
+    <div class="container-fluid">
+        <section class="row">
+            <article class="col-12 card pt-5 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Editar pack <%= product.name%></h1>
+                </div>
+            </article>
+        </section>
+        <section id="formulario" class="bg-home pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
+                        <div class="signup-form mt-2">
+                            <form action="/admin/memories/list/edit/<%= product.sku%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" class="form-control rounded-pill" name="name" value ='<%= product.name%>' required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Descripción</label>
+                                    <input type="text" class="form-control rounded-pill" name="description" value ='<%= product.description%>' rows="3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Imagen</label><br>
+                                        <img width="50%" class="img-thumbnail" src="/img/packs/<%= product.image%>" alt="">
+                                        <input type="hiden" class="form-control-file rounded" id="imagen-producto" value ="<%= product.image%>" name="oldImage">
+                                        <input type="file" class="form-control-file rounded" id="imagen-producto" name="image">
+                                </div>
+                                <div class="form-group">
+                                    <label for="visibility">Visibilidad</label>
+                                    <select id="visibility" class="form-control rounded-pill" name="visibility">
+                                        <option value="<%= product.visibility %> "<% if (product.visibility == 0) {%> selected <% } %>>Enabled</option>
+                                        <option value="<%= product.visibility %> "<% if (product.visibility == 1) {%> selected <% } %>>Disabled</option>  
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Precio $</label>
+                                    <input type="number" class="form-control rounded-pill" name="price" value ='<%= product.price%>' required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="special_price">Precio Especial $</label>
+                                    <input type="number" class="form-control rounded-pill" name="specialPrice" value ='<%= product.specialPrice%>' required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qty">Stock</label>
+                                    <input type="number" class="form-control rounded-pill" name="qty" value ='<%= product.qty%>' required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="categories">Categoría</label>
+                                    <select id="categories" class="form-control rounded-pill" name="categoryId">
+                                        <% for( let i = 0; i < categories.length; i++ ) { %>
+                                            <% if (categories[i].id == product.categoryId) { %>
+                                                <option value="<%= categories[i].id %>" selected>  <%= categories[i].name %> </option>
+                                            <% } else {%>
+                                                <option value="<%= categories[i].id %>"> <%= categories[i].name %> </option>
+                                            <% } %>
+                                        <% } %>
+                                    </select>
+                                </div>
+                                <div class="mx-auto bg-light mt-2 shadow-sm">
+                                    <div id="btn-guardar" class="form-group float-right mt-2">
+                                        <button type="submit" class="btn btn btn-info rounded-pill">Actualizar</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="btn-volver" class="form-group float-left mt-2">
+                                <a href="/admin/memories/list"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al Listado</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+<%- include('../partials/jsPartials.ejs') %>
+</body>
+</html>

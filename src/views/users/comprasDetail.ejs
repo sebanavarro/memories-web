@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/compras.css">
+    <title>Detalle de Compra | MEMORIES</title>
+</head>
+
+<body>
+<%- include('../partials/headerPartial.ejs') %>
+    <div class="container-fluid">
+        <section class="row">
+            <article id="tituloDetalleCompra" class="col-12 card mt-1 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Detalle de Compra</h1>
+                </div>
+            </article>
+        </section>
+        <section class="bg-white pt-4">
+            <div class="container">
+                <div class="row mb-4" >
+                    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 mx-auto bg-light shadow-sm">
+                        <div class="card">
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong>Nº Orden: </strong><%= cart.id %></li>
+                                <li class="list-group-item"><strong>Fecha de compra: </strong><%=new Date(cart.createdAt).getDate() + '-' + (new Date(cart.createdAt).getMonth() + 1) +  '-' + new Date(cart.createdAt).getFullYear()%></li>
+                                <li class="list-group-item"><strong>Precio Total: </strong>$<%= toThousand(cart.total) %></li>
+                                <li class="list-group-item"><strong>Productos: </strong>
+                                    <table class="table mt-2 border-bottom">
+                                        <thead class="thead-light">
+                                            <tr class="tituloTabla">
+                                                <th scope="col">Imagen</th>
+                                                <th scope="col">Sku</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Cant</th>
+                                                <th scope="col">Precio<br>Lista</th>
+                                                <th scope="col">Precio<br>Especial</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% cart.items.forEach(item => { %>
+                                                <tr class="camposTabla">
+                                                    <td scope="row"><img width="100px" class="img-thumbnail" src="/img/packs/<%= item.products.image %>" alt=""></td>
+                                                    <td><%= item.products.sku %></td>
+                                                    <td><%= item.products.name %></td>
+                                                    <td><%= item.qty %></td>
+                                                    <% if (item.products.price == item.products.specialPrice) { %>
+                                                    <td>$<%= toThousand(item.products.price) %> </td> 
+                                                    <td>-</td>                           
+                                                    <% } else {%>
+                                                    <td class="specialPrice">$<%= toThousand(item.products.price) %> </td>
+                                                    <td class="border-bottom">$<%= toThousand(item.products.specialPrice) %> </td>
+                                                    <% } %> 
+                                                </tr>
+                                                <% }) %>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 mx-auto bg-light pt-4 shadow-sm">
+                        <div id="btn-volver" class="form-group float-left">
+                            <a href="/mi-cuenta/ver/compras/<%=loggedInUser.id%>"> <button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver a Mis Compras</button></a>
+                        </div>
+                    </div>                         
+                </div>
+            </div>
+        </section>
+    <%- include('../partials/jsPartials.ejs') %>
+    <%- include('../partials/footerPartial.ejs') %>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/headPartial.ejs') %>
+  <link rel="stylesheet" href="/css/product.css">
+  <title>BIENESTAR | MEMORIES</title>
+</head>
+
+<body>
+<%- include('../partials/headerPartial.ejs') %>
+  <div class="container-fluid">
+    <div class="d-none d-lg-block">
+      <section id="topBannerCategoria">
+        <img src="/img/banners/banner-bienestar-desktop.jpg" alt="gastronomia" class="bannerGrilla">
+      </section>
+    </div>
+    <div class="d-lg-none">
+      <section id="topBannerCategoria">
+        <img src="/img/banners/banner-bienestar-mobile.jpg" alt="gastronomia" class="bannerGrilla">
+      </section>
+    </div>
+    <div class="col-12" id="experienciasDentroDelMemorie">
+      <h1 class="tituloCategoriaGrilla"> Bienestar </h1>
+      <h4 class="subtituloCategoriaGrilla"> Disfrutá de experiencias <br> inolvidables </h4>
+    </div>
+    <div class="container text-center">
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ordenar
+        </button>
+        <div class="dropdown-menu text-center divOrdenar">
+          <a class="dropdown-item" href="/bienestar/az">A / Z</a>
+          <a class="dropdown-item" href="/bienestar/za">Z / A</a>
+          <a class="dropdown-item" href="/bienestar/lowest">PRECIO MÁS BAJO</a>
+          <a class="dropdown-item" href="/bienestar/highest">PRECIO MÁS ALTO</a>
+        </div>
+      </div>
+    </div>
+    <div class="row botonesCategoria">
+    <img src="" alt="">
+    <div class="container">
+      <div class="row" id="rowMemoriesPacks">        
+        <% for( let i = 0; i < products.length; i++ ) { %>
+        <% if (products[i].categoryId == 2 && products[i].visibility == 0 && products[i].qty >= 1) { %>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 text-center mb-4" class="memoriePack"><a href="/detalle/<%= products[i].sku %>">
+          <img class="imagenMemoriePack mb-2" src="/img/packs/<%= products[i].image %>" alt="<%= products[i].name %>"></a>
+          <% if (products[i].price == products[i].specialPrice) { %>
+          <h4 class="text-center mb-4 mismaLinea"><i class="fas fa-money-bill-alt mr-1"></i><%= '$' +  toThousand(products[i].price) %></h4>
+          <% } else {%>
+          <h4 class="text-center mb-4 specialPrice mismaLinea"><i class="fas fa-money-bill-alt mr-1"></i><%= '$' +  toThousand(products[i].price) %></h4>
+          <h4 class="text-center mb-4 mismaLinea"><i class="fas fa-tag mr-2 ml-1"></i><%= '$' +  toThousand(products[i].specialPrice) %></h4>
+          <% } %> 
+        </div>
+        <% } %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<%- include('../partials/footerPartial.ejs') %>
+<%- include('../partials/jsPartials.ejs') %>
+</body>
+</html>

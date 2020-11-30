@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <title><%= product.name%> | MEMORIES</title>
+</head>
+
+<body>
+    <%- include('../partials/headerPartial.ejs') %>
+    <div class="container-fluid" id="containerSupremo">
+        <div class="row" id="containerProducto">
+            <div class="col-lg-6 col-12" id="divImagenCentral">
+                <img src="/img/packs/<%= product.image%>" alt="<%= product.name%>" id="imagenMemorie" width="80%">
+            </div>
+            <div class="col-lg-6 col-12" id="informacion">
+                <ul class="infoEnLista1">
+
+                    <li id="nombreMemorie">
+                        <h2> <%= product.name%> </h2>
+                    </li>
+
+                    <li><br></li>
+
+                    <li class="row mx-auto" id="precioMemorie">
+                        <% if (product.price == product.specialPrice) { %>
+                        <h3><i class="fas fa-money-bill-alt mr-1"></i>$<%= toThousand(product.price)%></h3>
+                        <% } else { %>
+                        <h3 class="specialPrice"><i class="fas fa-money-bill-alt mr-1"></i>$<%= toThousand(product.price)%></h3>
+                        <h3 class="ml-1"><i class="fas fa-tag mr-2 ml-1"></i>$<%= toThousand(product.specialPrice)%></h3>
+                        <% } %> 
+                    </li>
+
+                    <li><br></li>
+                    <li id="textoDescriptivoMemorie">
+                        <h6> <%= product.description%> </h6>
+                    </li>
+                    <li><br></li>
+
+                    <div class="row text-center" id="metodos">
+                        <div class="col-6 col-6">
+                            <li>
+                                <h6><a class="text-decoration-none text-dark" href="/metodos-de-pago" target="_blank"><i
+                                            class="fas fa-credit-card mr-1"></i> FORMAS DE PAGO </a></h6>
+                            </li>
+                        </div>
+                        <div class="col-6">
+                            <li>
+                                <h6><a class="text-decoration-none text-dark" href="/metodos-de-envio"
+                                        target="_blank"><i class="fas fa-truck mr-1"></i>METODOS DE ENVIO </a>
+                                    <h6>
+                            </li>
+                        </div>
+                    </div>
+                    <li>
+                        <h6 id="txt-sku" class="text-center">SKU #<%= product.sku%></h6>
+                    </li>
+
+                    <li><br></li>
+
+                    <li>
+                        <form action="/carrito/agregar" method="post">
+                            <input type="hidden"  name="productSku" value="<%= product.sku%>">
+                            <button type="submit" class="btn-block btn-lg rounded-pill buyButton" id="botonComprar">COMPRAR</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-12" id="experienciasDentroDelMemorie">
+        <h2 id="titulo"> El Memorie <strong><%= product.name %></strong> contiene las siguientes experiencias: </h2>
+    </div>
+
+    <div class="row" id="filaExperiencias">
+        <% for( let i = 0; i < product.productExperiences.length; i++ ) { %>
+            <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12 mb-3" id="experiencia/id">
+                <a class="text-decoration-none text-dark" href="/experiencia/<%= product.productExperiences[i].id%>"> <img src="/img/experiences/<%= product.productExperiences[i].image%>" alt="<%= product.productExperiences[i].name %> " class="imagenDelLocal">
+                <h5 class="nombreLocal text-center"><%= product.productExperiences[i].name %> </h5>
+                </a>
+            </div>
+        <% } %>
+    </div>
+    <%- include('../partials/footerPartial.ejs') %>
+    <%- include('../partials/jsPartials.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="/js/productAddValidation.js"></script>
+</div>
+    </div>
+</body>
+
+</html>

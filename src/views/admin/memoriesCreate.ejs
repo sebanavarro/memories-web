@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <title>Agregar Producto | MEMORIES</title>
+</head>
+
+<body>
+<%- include('../partials/headerAdminPartial.ejs') %>
+    <div class="container-fluid">
+        <section class="row">
+            <article class="col-12 card pt-5 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Agregar nuevo pack de Memories</h1>
+                </div>
+                <div class="div-errors">
+                    <ul>
+                    </ul>
+                </div>
+            </article>
+        </section>
+        <section id="formulario" class="bg-home pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
+                        <div class="signup-form mt-2">
+                            <form autocomplete="off" class="form" action="/admin/memories/create" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" class="form-control rounded-pill name" name="name" placeholder="Ej: Take Away">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Descripción</label>
+                                    <input type="text" class="form-control rounded-pill description" name="description" placeholder="Ej: Delicias para disfrutar en casa" rows="3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Imagen (medidas recomendadas: 700x700 px)</label>
+                                    <input type="file" class="form-control-file rounded image" id="imagen-producto" name="image">
+                                    <div class="img-errors">
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="visibility">Visibilidad</label>
+                                    <select id="visibility" class="form-control rounded-pill" name="visibility">
+                                        <option value="0">Enabled</option>
+                                        <option value="1">Disabled</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Precio $</label>
+                                    <input type="text" class="form-control rounded-pill price" name="price" placeholder="Ej: 1899">
+                                </div>
+                                <div class="form-group">
+                                    <label for="special_price">Precio Especial $</label>
+                                    <input type="text" class="form-control rounded-pill" name="specialPrice" placeholder="Ej: 1899">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qty">Stock</label>
+                                    <input type="text" class="form-control rounded-pill qty" name="qty" placeholder="Ej: 100">
+                                </div>
+                                <div class="form-group">
+                                    <label for="categories">Categoría</label>
+                                    <select id="categories" class="form-control rounded-pill" name="categoryId">
+                                        <% for( let i = 0; i < categories.length; i ++ ) { %>
+                                            <option value="<%= categories[i].id %> "><%= categories[i].name %> </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                                <div class="mx-auto bg-light shadow-sm">
+                                    <div id="btn-guardar" class="form-group float-right mt-2">
+                                        <button type="submit" class="btn btn-info rounded-pill">Guardar</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="btn-volver" class="form-group float-left mt-2">
+                                <a href="/admin"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <%- include('../partials/jsPartials.ejs') %>
+    <script src="/js/productsValidation.js"></script>
+</body>
+
+</html>

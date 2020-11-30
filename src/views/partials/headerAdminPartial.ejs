@@ -1,0 +1,101 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm fixed-top">
+        <a href="/admin" class="navbar-center"><img src="/img/logo-memories-md.png" width="75px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul id="nav-left" class="navbar-nav col-10">
+
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Memories</i>
+                    </a>
+                    <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admin/memories/create">Agregar nuevo pack<i
+                                class="fas fa-plus-circle ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/memories/list">Listar packs<i
+                                class="fas fa-list-alt ml-2"></i></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Experiencias</i>
+                    </a>
+                    <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admin/experiences/create">Agregar nueva experiencia<i
+                                class="fas fa-plus-circle ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/experiences/list">Listar experiencias<i class="fas fa-list-alt ml-2"></i></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Categorías</i>
+                    </a>
+                    <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admin/categories/create">Agregar nueva categoría<i
+                                class="fas fa-plus-circle ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/categories/list">Listar categorías<i class="fas fa-list-alt ml-2"></i></a>
+                    </div>
+                </li>
+                <% if (loggedInAdminUser.role == 1) { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Usuarios</i>
+                    </a>
+                    <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admin/register">Agregar nuevo usuario<i class="fas fa-plus-circle ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/users/list">Listar usuarios Admin<i class="fas fa-list-alt ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/registered-users">Listar usuarios Registrados Web<i class="fas fa-list-alt ml-2"></i></a>        
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Ventas</i>
+                    </a>
+                    <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admin/orders/list">Listar Órdenes<i class="fas fa-list-alt ml-2"></i></a>
+                    </div>
+                </li>
+            <% }%>
+
+            </ul>
+            <% if (loggedInAdminUser) { %>
+            <ul id="nav-right" class="navbar-nav col-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="/admin/login" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <%= loggedInAdminUser.username %> <img class="rounded-circle" width="20%" src="/img/adminUsers/<%= loggedInAdminUser.photo %> " alt=""> </i>
+                    </a>
+                    <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admin/account/<%= loggedInAdminUser.id %> ">Mi Cuenta<i class="fas fa-edit ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/logout">Salir<i class="fas fa-sign-out-alt ml-2"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <% } else {%>
+            <ul id="nav-right" class="navbar-nav col-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="/admin/login" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Usuario <i class="fas fa-user-circle ml-2"></i>
+                    </a>
+                    <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admin/login">Ingresá<i class="fas fa-sign-in-alt ml-2"></i></a>
+                        <a class="dropdown-item" href="#">Salir<i class="fas fa-sign-out-alt ml-2"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <%}%>  
+
+        </div>
+    </nav>
+</header>

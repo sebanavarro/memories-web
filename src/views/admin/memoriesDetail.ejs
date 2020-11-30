@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <title> <%= product.name %>  | MEMORIES</title>
+</head>
+
+<body>
+<%- include('../partials/headerAdminPartial.ejs') %>
+    <div class="container-fluid">
+        <section class="row">
+            <article class="col-12 card pt-5 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Detalle del producto <%= product.name %> </h1>
+                </div>
+            </article>
+        </section>
+        <section class="bg-white pt-4">
+            <div class="container">
+                <div class="row mb-4" >
+                    <div class="col-8 mx-auto bg-light shadow-sm">
+                        <div class="card">
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong>Sku: </strong><%= product.sku%></li>
+                                <li class="list-group-item"><strong>Nombre: </strong><%= product.name%></li>
+                                <li class="list-group-item"><strong>Descripción: </strong><%= product.description%></li>
+                                <li class="list-group-item"><strong>Precio: </strong>$<%= toThousand(product.price)%></li>
+                                <li class="list-group-item"><strong>Precio Especial: </strong>$<%= toThousand(product.specialPrice)%></li>
+                                <li class="list-group-item"><strong>Visibilidad: </strong>
+                                <% if (product.visibility == 0) { %>
+                                    <%= 'Enabled' %>
+                                    <% } else {%>
+                                    <%= 'Disabled' %>
+                                <%}%>
+                                </li>
+                                <li class="list-group-item"><strong>Categoría: </strong><%= product.productCategory.name %></li>
+                                <li class="list-group-item"><strong>Experiencias Asociadas: </strong>
+                                    <% if (product.productExperiences.length != 0) { %>
+                                        <% for( let i = 0; i < product.productExperiences.length; i++ ) { %>
+                                            <a href="/admin/experience/view/<%= product.productExperiences[i].id%>"><%= product.productExperiences[i].name + ', '%></a>
+                                        <% } %>
+                                    <% } else { %>
+                                        <span>Todavía no hay experiencias asociadas      <i class="fas fa-arrow-right"></i></span>
+                                        <a href="/admin/experiences/create">   Crear Experiencia</a>
+                                    <% } %> 
+                                </li>
+                                <li class="list-group-item"><strong>Stock: </strong><%= product.qty%></li>
+                                <li class="list-group-item "><strong>Imagen: </strong><img width="50%" class="img-thumbnail" src="/img/packs/<%= product.image%>" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-8 mx-auto bg-light pt-4 shadow-sm">
+                        <div id="btn-volver" class="form-group float-left">
+                            <a href="/admin/memories/list"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al listado</button></a>
+                        </div>
+                        <div id="btn-edit" class="form-group float-right">
+                            <a href="/admin/memories/list/edit/<%= product.sku%>"><button class="btn btn-info rounded-pill">Editar<i class="fas fa-edit text-decoration-none ml-1"></i></button></a>
+                        </div>
+                    </div>                         
+                </div>
+            </div>
+        </section>
+    </div>
+<%- include('../partials/jsPartials.ejs') %>
+</body>
+</html>

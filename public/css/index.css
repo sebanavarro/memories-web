@@ -1,0 +1,468 @@
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container-fluid {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
+}
+
+#containerSupremo {
+    margin-top: 20px;
+}
+
+
+#topBannerCategoria {
+    margin-top: 0px;
+}
+
+#imagenMemorie {
+    border-radius: 20px;
+    width: 80%;
+    
+}
+
+.card-img-top-paso {
+    width: 60%;
+}
+
+
+#titulo { 
+    font-weight: normal;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 0.5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%; 
+    margin-left: 2%;    
+    border-top: solid #79c8d6;
+    border-width: 1px; 
+    margin-right: 2%;
+}
+
+#informacion {
+    text-align: left;
+    padding-right: 7%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+#divImagenCentral {
+    margin-bottom: 10px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.queTrae {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+#botonComprar {
+    color: white;
+    width: 100%;
+    border-style: none;
+    background-color: #F48169;
+    text-decoration: none;
+}
+
+.nombreLocal {
+    color: black;
+    text-align: center;
+}
+.nombreLocal :hover {
+    color: #FBC46C;
+    text-align: center;
+}
+
+
+.imagenDelLocal {
+    border-radius: 20px;
+    width: 70%;
+    margin: auto;
+}
+
+#filaExperiencias {
+    margin-bottom: 5%;
+}
+
+#items {
+    list-style: square;
+}
+
+#website {
+    color: #F48169;
+}
+
+#queIncluye {
+    padding-right: 4%;
+    margin-top: 1%;
+}
+
+.queIncluye {
+        font-weight: normal;
+        font-size: 1.5rem;
+        text-align: center;
+        border-width: 1px;
+        padding-top: 0.5%;
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+        border-top: solid #79c8d6  
+}
+
+#experiencias {
+    text-align: center;
+
+}
+
+
+#imagenRestaurant {
+    border-radius: 20px;
+    justify-content: center;
+}
+
+#detallesDelLocal {
+    margin-right: 2%;
+}
+
+
+#filaExperiencias {
+    display: flex;
+    justify-content: space-around;
+}
+
+#imagenRestaurant {
+    margin-left: 5%;
+}
+
+#imagenCategoria {
+    height: 40%;
+}
+
+
+#filaCategorias {
+    display: flex;
+    justify-content: space-around;
+}
+
+.miCarousel {
+    height: 100vw;
+    width: 100%;
+}
+
+.portadaHome {
+    height: 100vw;
+    width: 100%
+}
+
+#abriTuMemorie {
+    background-color: #F48169;
+    border-style: none;
+}
+
+#rowCategoriasHome {
+    justify-content: space-between;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
+}
+
+.carouselLanding {
+padding-bottom: 3%;
+}
+
+#eslogan {
+margin-bottom: 18%;
+}
+
+#categoriaIndividualHome {
+    margin-bottom: 2%;
+    padding-right: 1%;
+    padding-left: 1%;
+    
+}
+
+.imagenCategoriaHome {
+    border-radius: 20px;
+    transform: scale(1);
+    transition: transform .5s ease;
+}
+
+a:hover .imagenCategoriaHome{
+    transform: scale(1.025);
+    transition: transform .5s ease;
+}
+
+#tituloCategoriasHome {
+    margin-left: 3%;
+    margin-right: 3%;
+    border-top: solid #FBC46C;
+    border-top-width: 1px;
+    padding-top: 2%;
+}
+
+#rowPasoAPaso {
+    justify-content: space-around;
+    margin-bottom: -42%;
+}
+
+.textoPaso {
+    text-align: center;
+}
+
+.card-body {
+    padding: 0.50rem;
+}
+
+#tituloPasoAPasoHome {
+    margin-left: 1%;
+    border-top: solid #79c8d6;
+    border-top-width: 1px;
+    padding-top: 3%;
+    padding-bottom: 1%;
+    margin-right: 1%;
+    margin-top: 2%;
+}
+
+.imagenPasoAPaso {
+    display:block;
+    margin:auto;
+}
+
+#textoPaso4 {
+    margin-left: 1%;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+.bannerHome {
+    width: 100vw;
+}
+
+.bannerGrilla {
+    padding-bottom: 2%;
+    width: 100vw;
+    height: 100%;
+}
+
+.tituloCategoriaGrilla {
+    text-align: center;
+    font-weight: bold;;
+}
+
+.subtituloCategoriaGrilla {
+    text-align: center;
+    border-bottom: solid #FBC46C;
+    border-bottom-width: 1px;
+    margin-top: 1%;
+   padding-bottom: 1%;
+}
+
+.filtroOrdenar {
+    text-align: center;
+    justify-content: space-between;
+}
+
+.filtroFiltrar {
+    text-align: center;
+    justify-content: space-between;
+}
+
+.botonOrdenar {
+    background-color: #F48169;
+}
+
+.botonFiltrar {
+    background-color: #79c8d6
+}
+
+.botonesCategoria {
+    border-bottom: solid #FBC46C;
+    border-bottom-width: 1px;
+    margin-top: 1%;
+
+}
+
+.rowMemoriesPacks {
+    justify-content: space-around;
+}
+
+.memoriePack {
+    justify-content: space-around;
+}
+
+.imagenMemoriePack {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#bannerHomeMobile {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.bannerContenedor {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.tituloBannerMobile{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-color {
+    background-color: #F48169;
+    border-color: #F48169;
+    color: white;
+}
+
+.buttonAbriMobile{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.salmon {
+    color: #F48169;
+    font-weight: bold;
+}
+
+.middleblue {
+    color: #79C8D6;
+    font-weight: bold;
+}
+
+.yellow {
+    color: #FBC46C;
+    font-weight: bold;
+}
+
+.fix-home {
+    vertical-align: top;
+}
+
+h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+}
+
+h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h5 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.sliderContainer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.listaSlider {
+    max-height: 60vh;
+}
+
+
+@media (max-width: 540px) {
+    #carouselExampleCaptions {
+        display: none;
+    }
+}
+
+@media (min-width: 541px) and (max-width: 2000px) {
+    #bannerHomeMobile {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+
+    #divImagenCentral {
+        text-align: center;
+    }
+
+    #imagenRestaurant {
+        margin-left: 0px;
+    }
+
+    #informacion {
+        text-align: left;
+        padding-right: 7%;
+        padding-left: 7%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    
+    }
+
+    #titulo { 
+        margin-left: 2%;
+        margin-right: 2%;    
+        
+    }
+
+    .infoEnLista1 {
+        margin-right: 10%;
+    }
+
+    .items {
+        margin-right: 10%;
+    }
+
+    .queTrae {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 776px) {
+
+    #imagenPasoAPaso {
+            height: 100%;
+    }
+
+@media (min-width: 777px) and (max-width: 991px) {
+
+#categoriaIndividualHome {
+        margin-bottom: 2%;
+        padding-right: 2%;
+        padding-left: 2%;
+        
+}
+
+}
+}
